@@ -66,7 +66,7 @@ function MySignin() {
             localStorage.setItem('token', responseObj.response['token']);
             
             // console.log(response.json());
-            // nav('/home');
+            nav('/home');
 
         } catch (error) {
             console.error('Error sending POST request:', error.message);

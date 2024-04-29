@@ -1,0 +1,13 @@
+.hello{
+   background-color: burlywood;
+}
+/* Sidebar.css */
+.sidebar {
+   width: 200px;
+   /* height: 100%; */
+   background-color: #333;
+   color: #fff;
+   padding: 20px;
+   height: 100vh;
+}
+                  
