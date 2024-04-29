@@ -1,0 +1,165 @@
+.MainDiv{
+    height: 100vh;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+  justify-content: space-between; 
+    width: 100%;
+}
+.leftdiv{
+    width: 45%;
+}
+.rightdiv{
+    width: 65%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    /* background-color: rgb(45, 69, 77); */
+
+    /* margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center; */
+
+    /* height: 100vh; */
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* width: 300px; */
+    width: 85%;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-between;
+    height: 85%;
+}
+
+.imgCss {
+    position: relative; /* or absolute, depending on your layout */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+}
+.img-container{
+    width: 47%;
+}
+
+.sign-up-container{
+    /* background-color: aquamarine;
+    height: 85%; */
+    width: 47%;
+    padding: 20px;
+    text-align: left;
+    top: 50%;
+    left: 50%;
+    /* padding-left: 20px; */
+    /* margin-left: auto; */
+}
+
+
+
+/* .fadeable-div {
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  }
+.fade-out {
+    opacity: 0;
+    transform: translateX(500px);
+}
+*/
+
+.visible {
+    display: block;
+  }
+  
+  .hidden {
+    display: none;
+  } 
+  
+  
+
+/* .moveable-div {
+    width: 200px;
+    height: 100px;
+    background-color: lightblue;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .move-left {
+    transform: translateX(-100%);
+  } */
+
+  
+
+
+.sign-in-container{
+    /* background-color: aquamarine;
+    height: 85%; */
+    width: 47%;
+    padding: 20px;
+    text-align: left;
+    top: 50%;
+    left: 50%;
+    /* padding-left: 20px; */
+    /* margin-left: auto; */
+}
+
+  @media only screen and (max-width: 767px) {
+    /* Your mobile styles go here */
+    /* body {
+        background-color:red;
+      } */
+
+      .sign-up-container{
+        /* background-color: aquamarine;
+        height: 85%; */
+        width: 100%;
+        padding: 20px;
+        text-align: left;
+        top: 50%;
+        left: 50%;
+        height: 90%;
+        /* padding-left: 20px; */
+        /* margin-left: auto; */
+    }
+    .sign-in-container{
+        /* background-color: aquamarine;
+        height: 85%; */
+        width: 100%;
+        padding: 20px;
+        text-align: left;
+        top: 50%;
+        left: 50%;
+        /* padding-left: 20px; */
+        /* margin-left: auto; */
+    }
+    .img-container{
+        display: none;
+    }
+
+  }
+
+
+
+.sign-padding{
+    padding: 5px;
+    padding-left: 8%;
+}
+
+.inputFieldsCss{
+    /* height: 15% !important; */
+    width: 70%;
+}
+
+.Mui-error button {
+  color: red;
+}
