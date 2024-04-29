@@ -31,25 +31,11 @@ function MySignup() {
         event.preventDefault();
     };
 
-    const phoneCodes = [
-        {
-            value: '+1',
-            label: '+1',
-        },
-        {
-            value: '+44',
-            label: '+44',
-        },
-        {
-            value: '+91',
-            label: '+91',
-        },
-        // Add more phone codes as needed
-    ];
-
     const myRegisterApi = async (myObj) => {
 
-        const url = 'http://localhost:8080/api/saveUser';
+        // const url = 'http://localhost:8080/api/saveUser';
+        const url = 'https://1163-115-98-202-101.ngrok-free.app/signup';
+        
         const dataToSend = myObj;
 
         try {
@@ -64,8 +50,8 @@ function MySignup() {
                 throw new Error('Failed to send POST request');
             }
             console.log('POST request successful user is registered');
-            alert("User has created by this email or phone no : " + myObj.emailid + myObj.phoneno);
-            // alert("User has created by the email: ",myObj.emailid);
+            alert("User has created by this email or phone no : " + myObj.email + myObj.phone_number);
+            // alert("User has created by the email: ",myObj.email);
             nav('/');
 
         } catch (error) {
@@ -76,7 +62,7 @@ function MySignup() {
     // const clearSigupnData = () => {
     //     setFormData({
     //         username: '',
-    //         emailid: '',
+    //         email: '',
     //         password: '',
     //         confpass: ''
     //     })
@@ -86,16 +72,20 @@ function MySignup() {
     // };
 
     const [formData, setFormData] = useState({
-        username: '',
-        phoneno: '+91',
-        emailid: '',
+        // username: '',
+        first_name:'',
+        last_name:'',
+        email: '',
+        phone_number: '+91',
         password: '',
         confpass: ''
     });
     const [errors, setErrors] = useState({
-        username: '',
-        phoneno: '+91',
-        emailid: '',
+        // username: '',
+        first_name:'',
+        last_name:'',
+        email: '',
+        phone_number: '+91',
         password: '',
         confpass: ''
     });
@@ -127,7 +117,7 @@ function MySignup() {
         const isRightArrow = e.key === 'ArrowRight';
 
         // Disable backspace, delete, left arrow, and right arrow if the length is 3 or less
-        if ((isBackspace || isDelete || isLeftArrow || isRightArrow) && formData.phoneno.length <= 3) {
+        if ((isBackspace || isDelete || isLeftArrow || isRightArrow) && formData.phone_number.length <= 3) {
             e.preventDefault();
         }
 
@@ -139,16 +129,23 @@ function MySignup() {
 
     const validateForm = () => {
         const errors = {};
-        if (!formData.username) {
-            errors.username = "Username is required"
+        // if (!formData.username) {
+        //     errors.username = "Username is required"
+        // }
+        if (!formData.first_name) {
+            errors.first_name = "First Name is required"
         }
-        if (!formData.phoneno || !formData.phoneno.startsWith("+91") || formData.phoneno.length !== 13) {
-            errors.phoneno = "Phone Number is required, must start with +91, and must be 13 characters long";
+        if (!formData.last_name) {
+            errors.last_name = "Last Name is required"
+        }
+        
+        if (!formData.phone_number || !formData.phone_number.startsWith("+91") || formData.phone_number.length !== 13) {
+            errors.phone_number = "Phone Number is required, must start with +91, and must be 13 characters long";
         }
             
         
-        if (!formData.emailid) {
-            errors.emailid = "Email Id is required"
+        if (!formData.email) {
+            errors.email = "Email Id is required"
         }
         if (!formData.password) {
             errors.password = "Password is required"
@@ -162,8 +159,8 @@ function MySignup() {
     }
     const validateFormm = () => {
         const errors = {};
-        // if(formData.phoneno === "" || formData.phoneno ===){
-        //     errors.phoneno = "Phone number should be 10 digits only"
+        // if(formData.phone_number === "" || formData.phone_number ===){
+        //     errors.phone_number = "Phone number should be 10 digits only"
         // }
         if (formData.confpass !== formData.password) {
             errors.confpass = "Password should match"
@@ -184,7 +181,7 @@ function MySignup() {
 
                 <h1 className='sign-padding'>Sign up</h1>
 
-                <center>
+                {/* <center>
                     <PersonIcon style={{ fontSize: 30, paddingTop: '10px', marginRight: '8px' }} />
                     <TextField
                         id="outlined-basic"
@@ -196,6 +193,33 @@ function MySignup() {
                         onChange={onHandleChange}
                         error={Boolean(errors.username)}
                         className='inputFieldsCss' /><br /><br />
+                </center> */}
+
+                <center>
+                    <PersonIcon style={{ fontSize: 30, paddingTop: '10px', marginRight: '8px' }} />
+                    <TextField
+                        id="outlined-basic"
+                        label="First Name"
+                        variant="outlined"
+                        name="first_name"
+                        type='text'
+                        value={formData.first_name}
+                        onChange={onHandleChange}
+                        error={Boolean(errors.first_name)}
+                        className='inputFieldsCss' /><br /><br />
+                </center>
+                <center>
+                    <PersonIcon style={{ fontSize: 30, paddingTop: '10px', marginRight: '8px' }} />
+                    <TextField
+                        id="outlined-basic"
+                        label="Last Name"
+                        variant="outlined"
+                        name="last_name"
+                        type='text'
+                        value={formData.last_name}
+                        onChange={onHandleChange}
+                        error={Boolean(errors.last_name)}
+                        className='inputFieldsCss' /><br /><br />
                 </center>
 
                 <center>
@@ -204,11 +228,11 @@ function MySignup() {
                         id="outlined-basic"
                         label="Your Email"
                         variant="outlined"
-                        name="emailid"
+                        name="email"
                         type='text'
-                        value={formData.emailid}
+                        value={formData.email}
                         onChange={onHandleChange}
-                        error={Boolean(errors.emailid)}
+                        error={Boolean(errors.email)}
                         className='inputFieldsCss' /><br /><br />
                 </center>
 
@@ -218,12 +242,12 @@ function MySignup() {
                         id="outlined-basic"
                         label="Your Phone No"
                         variant="outlined"
-                        name="phoneno"
+                        name="phone_number"
                         type='tel'
-                        value={formData.phoneno}
+                        value={formData.phone_number}
                         onChange={onHandleChange}
                         onKeyDown={handleKeyDown}
-                        error={Boolean(errors.phoneno)}
+                        error={Boolean(errors.phone_number)}
                         className='inputFieldsCss'
                         inputProps={{ maxLength: 13, inputMode: 'numeric' }}
                     /><br /><br />
