@@ -1,11 +1,12 @@
-import { useState } from "react";
-import { Button, Layout, theme } from "antd";
+import { Profiler, useState } from "react";
+import { Avatar, Button, Layout, theme } from "antd";
 import "./SideNav.css"
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
 import Logo from "./NComponents/Logo";
 import MenuList from "./NComponents/MenuList";
 import ToggleThemeButton from "./NComponents/ToggleThemeButton";
 import { Content } from "antd/es/layout/layout";
+import UserMenu from "./NComponents/UserMenu";
 
 const { Header, Sider } = Layout;
 
@@ -13,6 +14,9 @@ function SideNav() {
 
     const [darkTheme, setDarkTheme] = useState(true);
     const [collapsed, setCollapsed] = useState(false);
+
+    const name = 'Sudhanva';
+    var firstLetter = name[0];
 
     const toggleTheme =()=>{
         setDarkTheme(!darkTheme)
@@ -32,6 +36,10 @@ function SideNav() {
             <Layout>
                 <Header style={{padding: 0, background: colorBgContainer}}>
                     <Button type="text" className="toggle" onClick={()=>{setCollapsed(!collapsed)}} icon={collapsed ? <MenuUnfoldOutlined/> : <MenuFoldOutlined/> }></Button>
+
+                    <UserMenu firstLetter={firstLetter}/>
+                    <label className="login-name">{name}</label>
+
                 </Header>
                 <Content>
                     {/* laksjdfskjdaf */}

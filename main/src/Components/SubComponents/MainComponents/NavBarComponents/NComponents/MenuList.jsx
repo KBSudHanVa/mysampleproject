@@ -7,41 +7,20 @@ import {
     SettingOutlined,
     BarsOutlined,
     EditOutlined,
-    UserOutlined
+    UserOutlined,
+    LogoutOutlined
 } from '@ant-design/icons'
+import { useNavigate } from 'react-router-dom';
 
 const MenuList = ({ darkTheme }) => {
+
+    const nav = useNavigate();
 
     var a = 'more ('+0+')';
 
     return (
         <Menu theme={darkTheme ? 'light' : 'dark'} mode="inline" className="menu-bar">
-            {/* <Menu.Item key="home" icon={ <HomeOutlined/> } >
-                Home 
-            </Menu.Item>
-            <Menu.Item key="activity" icon={ <AppstoreOutlined/> } >
-                Activity 
-            </Menu.Item>
-            <Menu.SubMenu key="tasks" icon={ <BarsOutlined/>}
-                title="Tasks" >
-                    <Menu.Item key="task-1" >Task 1</Menu.Item>
-                    <Menu.Item key="task-2" >Task 2</Menu.Item>
-                    <Menu.SubMenu key="subtasks" title="SubTasks">
-                        <Menu.Item key="subtask-1">Subtask 1</Menu.Item>
-                        <Menu.Item key="subtask-2">Subtask 2</Menu.Item>
-                    </Menu.SubMenu>
-                    <Menu.Item key="task-3" >Task 3</Menu.Item>
-                </Menu.SubMenu>
-            <Menu.Item key="progress" icon={ <AreaChartOutlined/> } >
-                Progress 
-            </Menu.Item>
-            <Menu.Item key="payment" icon={ <PayCircleOutlined/> } >
-                payment 
-            </Menu.Item>
-            <Menu.Item key="setting" icon={ <SettingOutlined/> } >
-                Setting 
-            </Menu.Item> */}
-
+            
             <Menu.SubMenu key="yourbooks" icon={<EditOutlined />} title="YOUR Books">
                 <Menu.Item key="clientoverview"  >
                     Client OverView
@@ -146,6 +125,8 @@ const MenuList = ({ darkTheme }) => {
                 </Menu.SubMenu>
 
             </Menu.SubMenu>
+
+            <Menu.Item key='logout' icon={<LogoutOutlined/>} onClick={()=>{nav('/')}}> Logout </Menu.Item>
 
 
         </Menu>

@@ -1,9 +1,37 @@
-.sidebar{
+.sidebar {
     /* color: #fff; */
     color: rgba(28, 17, 41, 0.88);
     /* height: 100vh; */
 }
-.logo{
+
+/* .header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; Ensures the header stays on top
+  } */
+.avatar {
+    margin-right: 16px;
+    margin-top: 12px;
+    float: right;
+}
+.login-name{
+    margin-right: 16px;
+    margin-top: -5px;
+    float: right;
+}
+.ant-avatar .login-name{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,7 +40,8 @@
     background-color: #fff;
     padding: 10px;
 }
-.logo-icon{
+
+.logo-icon {
     width: 50px;
     height: 40px;
     display: flex;
@@ -23,8 +52,9 @@
     background-color: #fff;
     /* background-color: rgba(28, 17, 41, 0.88); */
 }
-.menu-bar{
-    height: 100vh;
+
+.menu-bar {
+    height: 91vh;
     /* margin-top: 2rem; */
     display: flex;
     flex-direction: column;
@@ -32,7 +62,8 @@
     /* font-size: 1rem; */
     position: relative;
 }
-.toggle-theme-btn{
+
+.toggle-theme-btn {
     position: absolute;
     bottom: 30px;
     left: 20px;
@@ -42,6 +73,7 @@
     font-size: 1rem;
 
 }
-.toggle{
+
+.toggle {
     margin-left: 15px;
 }
