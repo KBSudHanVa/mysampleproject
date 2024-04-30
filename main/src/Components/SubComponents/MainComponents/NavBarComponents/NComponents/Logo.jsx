@@ -1,10 +1,11 @@
-import { FireFilled } from '@ant-design/icons'
+import { FireFilled, FileDoneOutlined } from '@ant-design/icons'
 
 const Logo = () => {
     return ( 
         <div className="logo">
             <div className="logo-icon">
-                <FireFilled />
+                {/* <FireFilled />  */}
+                <FileDoneOutlined/>
             </div>
         </div>
      );

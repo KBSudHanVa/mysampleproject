@@ -5,6 +5,7 @@ import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
 import Logo from "./NComponents/Logo";
 import MenuList from "./NComponents/MenuList";
 import ToggleThemeButton from "./NComponents/ToggleThemeButton";
+import { Content } from "antd/es/layout/layout";
 
 const { Header, Sider } = Layout;
 
@@ -24,14 +25,17 @@ function SideNav() {
     return (
         <Layout>
             <Sider className="sidebar" collapsed={collapsed} collapsible trigger={null} theme={darkTheme ? 'dark' : 'light'}>
-                <Logo/>
+                <Logo />
                 <MenuList darkTheme={darkTheme}/>
-                <ToggleThemeButton darkTheme={darkTheme} toggleTheme={toggleTheme}/>
+                {/* <ToggleThemeButton darkTheme={darkTheme} toggleTheme={toggleTheme}/> */}
             </Sider>
             <Layout>
                 <Header style={{padding: 0, background: colorBgContainer}}>
                     <Button type="text" className="toggle" onClick={()=>{setCollapsed(!collapsed)}} icon={collapsed ? <MenuUnfoldOutlined/> : <MenuFoldOutlined/> }></Button>
                 </Header>
+                <Content>
+                    {/* laksjdfskjdaf */}
+                </Content>
             </Layout>
         </Layout>
     );

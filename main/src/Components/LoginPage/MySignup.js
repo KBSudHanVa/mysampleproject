@@ -179,7 +179,7 @@ function MySignup() {
 
                 {/* style={{display:'none'}}> */}
 
-                <h1 className='sign-padding'>Sign up</h1>
+                <h1 className='sign-up-padding'>Sign up</h1>
 
                 {/* <center>
                     <PersonIcon style={{ fontSize: 30, paddingTop: '10px', marginRight: '8px' }} />

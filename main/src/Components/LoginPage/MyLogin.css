@@ -26,7 +26,7 @@ body {
     transform: translate(-50%, -50%);
     display: flex;
     justify-content: space-between;
-    height: 85%;
+    height: 88%;
 }
 
 .imgCss {
@@ -135,9 +135,15 @@ body {
 
 
 
-.sign-padding{
+.sign-in-padding{
     padding: 5px;
+    padding-top: 20%;
     padding-left: 8%;
+}
+.sign-up-padding{
+  padding-top: 0px;
+  margin-top: 2px;
+  padding-left: 8%;
 }
 
 .inputFieldsCss{
