@@ -1,16 +1,6 @@
 import { Menu } from "antd";
-import {
-    HomeOutlined,
-    AppstoreOutlined,
-    AreaChartOutlined,
-    PayCircleOutlined,
-    SettingOutlined,
-    BarsOutlined,
-    EditOutlined,
-    UserOutlined,
-    LogoutOutlined
-} from '@ant-design/icons'
-import { useNavigate } from 'react-router-dom';
+import { EditOutlined } from '@ant-design/icons'
+import { Outlet, useNavigate } from 'react-router-dom';
 
 const MenuList = ({ darkTheme }) => {
 
@@ -25,26 +15,30 @@ const MenuList = ({ darkTheme }) => {
             label: 'YOUR Books',
             children: [
                 {
-                    key: 'home',
-                    label: 'Client OverView'
+                    key: '',
+                    label: 'Client OverView',
+                    path: '/home'
                 },
                 {
                     key: 'dashboard',
                     label: 'Dashboard',
                     children: [
                         {
-                            key: 'dashboard1',
+                            key: 'dashboard',
                             label: 'Dashboard One',
+                            path: '/home/dashboard'
                         },
                         {
                             key: 'dashboard2',
                             label: 'Dashboard Two',
+                            path: '/home/dashboard2'
                         },
                     ]
                 },
                 {
                     key: 'tasks',
-                    label: 'Tasks'
+                    label: 'Tasks',
+                    path: '/home/tasks'
                 },
                 {
                     key: 'transaction',
@@ -53,10 +47,12 @@ const MenuList = ({ darkTheme }) => {
                         {
                             key: 'deals',
                             label: 'Deals',
+                            path: '/home/deals'
                         },
                         {
                             key: 'logs',
                             label: 'Logs',
+                            path: '/home/logs'
                         },
                     ]
                 },
@@ -67,10 +63,12 @@ const MenuList = ({ darkTheme }) => {
                         {
                             key: 'financialreporting',
                             label: 'Financial Reporting',
+                            path: '/home/financialreporting'
                         },
                         {
                             key: 'count',
                             label: 'Count',
+                            path: '/home/count'
                         },
                     ]
                 },
@@ -81,6 +79,7 @@ const MenuList = ({ darkTheme }) => {
                         {
                             key: 'orders',
                             label: 'Orders',
+                            path: '/home/orders'
                         },
                     ]
                 },
@@ -91,10 +90,12 @@ const MenuList = ({ darkTheme }) => {
                         {
                             key: 'purchase',
                             label: 'Purchase',
+                            path: '/home/purchase'
                         },
                         {
                             key: 'charges',
                             label: 'Charges',
+                            path: '/home/charges'
                         },
                     ]
                 },
@@ -105,10 +106,12 @@ const MenuList = ({ darkTheme }) => {
                         {
                             key: 'outline',
                             label: 'Outline',
+                            path: '/home/outline'
                         },
                         {
                             key: 'statments',
                             label: 'Statments',
+                            path: '/home/statments'
                         },
                     ]
                 },
@@ -119,10 +122,12 @@ const MenuList = ({ darkTheme }) => {
                         {
                             key: 'currentpayroll',
                             label: 'Current payroll',
+                            path: '/home/currentpayroll'
                         },
                         {
                             key: 'lastpayroll',
                             label: 'Last payroll',
+                            path: '/home/lastpayroll'
                         },
                     ]
                 },
@@ -133,14 +138,17 @@ const MenuList = ({ darkTheme }) => {
                         {
                             key: 'calender',
                             label: 'Calender',
+                            path: '/home/calender'
                         },
                         {
                             key: 'timetable',
                             label: 'Time table',
+                            path: '/home/timetable'
                         },
                         {
                             key: 'schedules',
                             label: 'Schedules',
+                            path: '/home/schedules'
                         }
                     ]
                 },
@@ -149,12 +157,14 @@ const MenuList = ({ darkTheme }) => {
                     label: 'Financial Planning',
                     children: [
                         {
-                            key: 'fplainingplanning',
+                            key: 'financialplanning',
                             label: 'Financial Planning',
+                            path: '/home/financialplanning'
                         },
                         {
-                            key: 'fplainingexcuation',
-                            label: 'Financial Excution',
+                            key: 'financialexcuation',
+                            label: 'Financial Execution',
+                            path: '/home/financialexcuation'
                         },
                     ]
                 },
@@ -165,6 +175,7 @@ const MenuList = ({ darkTheme }) => {
                         {
                             key: 'workflowautomation',
                             label: 'Workflow',
+                            path: '/home/workflow'
                         }
                     ]
                 },
@@ -175,10 +186,12 @@ const MenuList = ({ darkTheme }) => {
                         {
                             key: 'taxesfiling',
                             label: 'Tax filing',
+                            path: '/home/taxfiling'
                         },
                         {
                             key: 'taxreturns',
                             label: 'Tax Returns',
+                            path: '/home/taxreturns'
                         },
                     ]
                 },
@@ -189,10 +202,12 @@ const MenuList = ({ darkTheme }) => {
                         {
                             key: 'lending',
                             label: 'Lending',
+                            path: '/home/lending'
                         },
                         {
                             key: 'banking',
                             label: 'Banking',
+                            path: '/home/banking'
                         },
                     ]
                 },
@@ -202,140 +217,29 @@ const MenuList = ({ darkTheme }) => {
                     children: [
                     ]
                 },
-                
-                
             ]
         }
     ]
 
-    const clickedmenu = (key)=>{
-        console.log(key);
-        nav(`/${key}`);
-      }
+    const clickedmenu = (path) => {
+        // console.log("clicking : "+ path);
+        nav(path);
+    };
+    
 
     return (
-        // <Menu theme={darkTheme ? 'light' : 'dark'} mode="inline" className="menu-bar">
-            
-        //     <Menu.SubMenu key="yourbooks" icon={<EditOutlined />} title="YOUR Books">
-        //         <Menu.Item key="clientoverview"  >
-        //             Client OverView
-        //         </Menu.Item>
-        //         <Menu.SubMenu key={"dashboard"} title="Dashboard" >
-        //             <Menu.Item key="dashboard1"  >
-        //                 Dashboard 1
-        //             </Menu.Item>
-        //             <Menu.Item key="dashboard2"  >
-        //                 Dashboard 2
-        //             </Menu.Item>
-        //         </Menu.SubMenu>
-        //         <Menu.Item key="tasks"  >
-        //             Tasks
-        //         </Menu.Item>
-        //         <Menu.SubMenu key={"transcations"} title="Transcations">
-        //             <Menu.Item key="transcations1"  >
-        //                 Transcations 1
-        //             </Menu.Item>
-        //             <Menu.Item key="transcations"  >
-        //                 Transcations 2
-        //             </Menu.Item>
-        //         </Menu.SubMenu>
-        //         <Menu.SubMenu key={"advanceaccounting"} title="Advance Accounting">
-        //             <Menu.Item key="advanceaccounting1"  >
-        //                 Advance Accounting 1
-        //             </Menu.Item>
-        //             <Menu.Item key="advanceaccounting2"  >
-        //                 Advance Accounting 2
-        //             </Menu.Item>
-        //         </Menu.SubMenu>
-        //         <Menu.SubMenu key={"sales"} title="Sales">
-        //             <Menu.Item key="sales1"  >
-        //                 Sales 1
-        //             </Menu.Item>
-        //             <Menu.Item key="sales2"  >
-        //                 Sales 2
-        //             </Menu.Item>
-        //         </Menu.SubMenu>
-        //         <Menu.SubMenu key={"expenses"} title="Expenses">
-        //             <Menu.Item key="expenses1"  >
-        //                 Expenses 1
-        //             </Menu.Item>
-        //             <Menu.Item key="expenses2"  >
-        //                 Expenses 2
-        //             </Menu.Item>
-        //         </Menu.SubMenu>
-        //         <Menu.SubMenu key={"reports"} title="Reports">
-        //             <Menu.Item key="reports1"  >
-        //                 Reports 1
-        //             </Menu.Item>
-        //             <Menu.Item key="reports2"  >
-        //                 Reports 2
-        //             </Menu.Item>
-        //         </Menu.SubMenu>
-        //         <Menu.SubMenu key={"payroll"} title="Payroll">
-        //             <Menu.Item key="payroll1"  >
-        //                 Payroll 1
-        //             </Menu.Item>
-        //             <Menu.Item key="payroll2"  >
-        //                 Payroll 2
-        //             </Menu.Item>
-        //         </Menu.SubMenu>
-        //         <Menu.SubMenu key={"time"} title="Time">
-        //             <Menu.Item key="time1"  >
-        //                 Time 1
-        //             </Menu.Item>
-        //             <Menu.Item key="time2"  >
-        //                 Time 2
-        //             </Menu.Item>
-        //         </Menu.SubMenu>
-        //         <Menu.SubMenu key={"financialplanning"} title="Financial Planning">
-        //             <Menu.Item key="financialplanning1"  >
-        //                 Financial Planning
-        //             </Menu.Item>
-        //         </Menu.SubMenu>
-        //         <Menu.SubMenu key={"workflowautomation"} title="Workflow automation">
-        //             <Menu.Item key="workflowautomation1"  >
-        //                 Workflow automation 1
-        //             </Menu.Item>
-        //             <Menu.Item key="workflowautomation2"  >
-        //                 Workflow automation 2
-        //             </Menu.Item>
-        //         </Menu.SubMenu>
-        //         <Menu.SubMenu key={"taxes"} title="Taxes">
-        //             <Menu.Item key="taxes1"  >
-        //                 Taxes 1
-        //             </Menu.Item>
-        //             <Menu.Item key="taxes2"  >
-        //                 Taxes 2
-        //             </Menu.Item>
-        //         </Menu.SubMenu>
-        //         <Menu.SubMenu key={"landb"} title="Lending and banking">
-        //             <Menu.Item key="lending"  >
-        //                 Lending
-        //             </Menu.Item>
-        //             <Menu.Item key="banking"  >
-        //                 Banking
-        //             </Menu.Item>
-        //         </Menu.SubMenu>
-        //         <Menu.SubMenu key={"more"} title={a}>
-        //         </Menu.SubMenu>
-
-        //     </Menu.SubMenu>
-
-        //     <Menu.Item key='logout' icon={<LogoutOutlined/>} onClick={()=>{nav('/')}}> Logout </Menu.Item>
-
-
-        // </Menu>
-
         <Menu
-          mode="inline"
-          theme="light"
-          items={useritems}
-          defaultOpenKeys={['main']}
-          defaultSelectedKeys={['home']}
-          onClick={(e)=>clickedmenu(e.key)}
-          className="menu-bar"
-          />
-
+            mode="inline"
+            theme="light"
+            items={useritems}
+            defaultOpenKeys={['main']}
+            // defaultSelectedKeys={['home']}
+            onClick={(e) => clickedmenu(e.key)}
+            className="menu-bar"
+        >
+            <Outlet/>
+        </Menu>         
+        
     );
 }
 

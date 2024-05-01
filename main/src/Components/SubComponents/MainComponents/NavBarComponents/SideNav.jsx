@@ -1,5 +1,7 @@
 import { Profiler, useState } from "react";
 import { Avatar, Button, Layout, theme } from "antd";
+import { Route, Routes } from 'react-router-dom';
+
 import "./SideNav.css"
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
 import Logo from "./NComponents/Logo";
@@ -7,6 +9,8 @@ import MenuList from "./NComponents/MenuList";
 import ToggleThemeButton from "./NComponents/ToggleThemeButton";
 import { Content } from "antd/es/layout/layout";
 import UserMenu from "./NComponents/UserMenu";
+import TaskComponent from "../ComponentScreens/DataComponents/TaskComponent";
+import NotFoundComponent from "../ComponentScreens/ErrorComponents/NotFoundComponent";
 
 const { Header, Sider } = Layout;
 
@@ -42,8 +46,13 @@ function SideNav() {
 
                 </Header>
                 <Content>
-                    {/* laksjdfskjdaf */}
+                    <Routes>
+                        <Route path="tasks" element={<TaskComponent />} />
+                        <Route path="dashboard" element={<TaskComponent />} />
+                        <Route path="*" element={<NotFoundComponent />} />
+                    </Routes>
                 </Content>
+
             </Layout>
         </Layout>
     );

@@ -3,34 +3,29 @@ import { Avatar, Menu, Dropdown } from 'antd';
 import { UserOutlined, SettingOutlined, LogoutOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 
-const UserMenu = ({firstLetter}) => {
-  
+const UserMenu = ({ firstLetter }) => {
+
   const [visible, setVisible] = useState(false);
   const nav = useNavigate();
 
-  let timer; // Declare a timer variable
+  let timer;
 
   useEffect(() => {
-    // Reset the timer whenever the visibility state changes
     if (visible) {
-      clearTimeout(timer); // Clear any existing timer
+      clearTimeout(timer);
       timer = setTimeout(() => {
-        setVisible(false); // Close the menu after 2 seconds
-      }, 2000); // 2000 milliseconds = 2 seconds
+        setVisible(false);
+      }, 2000);
     }
   }, [visible]);
 
-  const handleMenuClick = ({ key }) => {
-    if (key === 'logout') {
-      // Perform logout action
-    } else {
-      // Navigate to profile or settings page
-    }
-    setVisible(false); // Close the menu after clicking an item
+  const handleAvatarClick = () => {
+    setVisible(!visible);
   };
 
-  const handleAvatarClick = () => {
-    setVisible(!visible); // Toggle menu visibility on Avatar click
+  const handleMenuClick = (path) => {
+    nav(path);
+    setVisible(false);
   };
 
   const items = [
@@ -38,43 +33,30 @@ const UserMenu = ({firstLetter}) => {
       key: 'profile',
       icon: <UserOutlined />,
       label: 'Profile',
+      path: '/profile'
     },
     {
       key: 'settings',
       icon: <SettingOutlined />,
       label: 'Settings',
+      path: '/settings'
     },
     {
-      key: '',
+      key: 'logout',
       icon: <LogoutOutlined />,
       label: 'Logout',
+      path: '/'
     }
-  ]
-
-  const clickedmenu = (key)=>{
-    console.log(key);
-    nav(`/${key}`);
-  }
+  ];
 
   const menu = (
-    // <Menu onClick={handleMenuClick} style={{ width: 100, float: 'right', top: 0, right: 15 }}>
-    //   <Menu.Item key="profile" icon={<UserOutlined />}>
-    //     Profile
-    //   </Menu.Item>
-    //   <Menu.Item key="settings" icon={<SettingOutlined />}>
-    //     Settings
-    //   </Menu.Item>
-    //   <Menu.Item key="logout" icon={<LogoutOutlined />} onClick={()=>{nav('/')}}>
-    //     Logout
-    //   </Menu.Item>
-    // </Menu>
-
-        <Menu
-          mode="inline"
-          theme="dark"
-          items={items}
-          onClick={(e)=>clickedmenu(e.key)}
-          />
+    <Menu>
+      {items.map(item => (
+        <Menu.Item key={item.key} icon={item.icon} onClick={() => handleMenuClick(item.path)}>
+          {item.label}
+        </Menu.Item>
+      ))}
+    </Menu>
   );
 
   return (

@@ -19,6 +19,7 @@
     margin-right: 16px;
     margin-top: 12px;
     float: right;
+    cursor: pointer;
 }
 .login-name{
     margin-right: 16px;
