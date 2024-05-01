@@ -33,18 +33,48 @@ const UserMenu = ({firstLetter}) => {
     setVisible(!visible); // Toggle menu visibility on Avatar click
   };
 
+  const items = [
+    {
+      key: 'profile',
+      icon: <UserOutlined />,
+      label: 'Profile',
+    },
+    {
+      key: 'settings',
+      icon: <SettingOutlined />,
+      label: 'Settings',
+    },
+    {
+      key: '',
+      icon: <LogoutOutlined />,
+      label: 'Logout',
+    }
+  ]
+
+  const clickedmenu = (key)=>{
+    console.log(key);
+    nav(`/${key}`);
+  }
+
   const menu = (
-    <Menu onClick={handleMenuClick} style={{ width: 100, float: 'right', top: 0, right: 15 }}>
-      <Menu.Item key="profile" icon={<UserOutlined />}>
-        Profile
-      </Menu.Item>
-      <Menu.Item key="settings" icon={<SettingOutlined />}>
-        Settings
-      </Menu.Item>
-      <Menu.Item key="logout" icon={<LogoutOutlined />} onClick={()=>{nav('/')}}>
-        Logout
-      </Menu.Item>
-    </Menu>
+    // <Menu onClick={handleMenuClick} style={{ width: 100, float: 'right', top: 0, right: 15 }}>
+    //   <Menu.Item key="profile" icon={<UserOutlined />}>
+    //     Profile
+    //   </Menu.Item>
+    //   <Menu.Item key="settings" icon={<SettingOutlined />}>
+    //     Settings
+    //   </Menu.Item>
+    //   <Menu.Item key="logout" icon={<LogoutOutlined />} onClick={()=>{nav('/')}}>
+    //     Logout
+    //   </Menu.Item>
+    // </Menu>
+
+        <Menu
+          mode="inline"
+          theme="dark"
+          items={items}
+          onClick={(e)=>clickedmenu(e.key)}
+          />
   );
 
   return (
