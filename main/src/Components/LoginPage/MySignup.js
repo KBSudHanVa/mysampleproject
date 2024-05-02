@@ -33,8 +33,8 @@ function MySignup() {
 
     const myRegisterApi = async (myObj) => {
 
-        // const url = 'http://localhost:8080/api/saveUser';
-        const url = 'https://1163-115-98-202-101.ngrok-free.app/signup';
+        const url = 'http://localhost:8080/api/saveUser';
+        // const url = 'https://1163-115-98-202-101.ngrok-free.app/signup';
         
         const dataToSend = myObj;
 

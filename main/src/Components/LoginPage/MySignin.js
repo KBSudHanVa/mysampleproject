@@ -74,10 +74,10 @@ function MySignin() {
 
         }
     }
-
+    
     const clearSigninData = () => {
         setSigninData({
-            emailid: '',
+            email: '',
             password: ''
         })
         const errors = {};
@@ -86,18 +86,18 @@ function MySignin() {
     };
 
     const [signinData, setSigninData] = useState({
-        emailid: '',
+        email: '',
         password: ''
     });
     const [signinDataError, setSigninDataError] = useState({
-        emailid: '',
+        email: '',
         password: ''
     });
     const validateFormSigin = () => {
         const errors = {};
 
-        if (!signinData.emailid) {
-            errors.emailid = "Username is required"
+        if (!signinData.email) {
+            errors.email = "Username is required"
         }
         if (!signinData.password) {
             errors.password = "Password is required"
@@ -145,11 +145,11 @@ function MySignin() {
                         variant="outlined"
                         className='inputFieldsCss'
 
-                        name="emailid"
+                        name="email"
                         type='text'
-                        value={signinData.emailid}
+                        value={signinData.email}
                         onChange={onHandleChangeSignin}
-                        error={Boolean(signinDataError.emailid)}
+                        error={Boolean(signinDataError.email)}
                     /><br /><br />
                 </center>
 

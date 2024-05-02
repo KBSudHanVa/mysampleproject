@@ -1,6 +1,6 @@
 import { Profiler, useState } from "react";
 import { Avatar, Button, Layout, theme } from "antd";
-import { Route, Routes } from 'react-router-dom';
+import { Outlet, Route, Routes } from 'react-router-dom';
 
 import "./SideNav.css"
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
@@ -11,6 +11,7 @@ import { Content } from "antd/es/layout/layout";
 import UserMenu from "./NComponents/UserMenu";
 import TaskComponent from "../ComponentScreens/DataComponents/TaskComponent";
 import NotFoundComponent from "../ComponentScreens/ErrorComponents/NotFoundComponent";
+import SubRoutes from "../SubRoutes";
 
 const { Header, Sider } = Layout;
 
@@ -22,35 +23,31 @@ function SideNav() {
     const name = 'Sudhanva';
     var firstLetter = name[0];
 
-    const toggleTheme =()=>{
+    const toggleTheme = () => {
         setDarkTheme(!darkTheme)
     }
 
-    const { 
-        token: {colorBgContainer}, 
+    const {
+        token: { colorBgContainer },
     } = theme.useToken();
 
     return (
         <Layout>
             <Sider className="sidebar" collapsed={collapsed} collapsible trigger={null} theme={darkTheme ? 'dark' : 'light'}>
                 <Logo />
-                <MenuList darkTheme={darkTheme}/>
+                <MenuList darkTheme={darkTheme} />
                 {/* <ToggleThemeButton darkTheme={darkTheme} toggleTheme={toggleTheme}/> */}
             </Sider>
             <Layout>
-                <Header style={{padding: 0, background: colorBgContainer}}>
-                    <Button type="text" className="toggle" onClick={()=>{setCollapsed(!collapsed)}} icon={collapsed ? <MenuUnfoldOutlined/> : <MenuFoldOutlined/> }></Button>
+                <Header style={{ padding: 0, background: colorBgContainer }}>
+                    <Button type="text" className="toggle" onClick={() => { setCollapsed(!collapsed) }} icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}></Button>
 
-                    <UserMenu firstLetter={firstLetter}/>
+                    <UserMenu firstLetter={firstLetter} />
                     <label className="login-name">{name}</label>
 
                 </Header>
                 <Content>
-                    <Routes>
-                        <Route path="tasks" element={<TaskComponent />} />
-                        <Route path="dashboard" element={<TaskComponent />} />
-                        <Route path="*" element={<NotFoundComponent />} />
-                    </Routes>
+                    <Outlet />
                 </Content>
 
             </Layout>

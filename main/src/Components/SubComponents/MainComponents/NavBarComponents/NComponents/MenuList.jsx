@@ -16,6 +16,7 @@ const MenuList = ({ darkTheme }) => {
             children: [
                 {
                     key: '',
+                    // key: 'home',
                     label: 'Client OverView',
                     path: '/home'
                 },
@@ -222,9 +223,11 @@ const MenuList = ({ darkTheme }) => {
     ]
 
     const clickedmenu = (path) => {
-        // console.log("clicking : "+ path);
         nav(path);
     };
+    // const clickedmenu = (key) => {
+    //     nav(`/${key}`);
+    // }
     
 
     return (

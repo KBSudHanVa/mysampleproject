@@ -24,6 +24,9 @@ const UserMenu = ({ firstLetter }) => {
   };
 
   const handleMenuClick = (path) => {
+    if(nav==="/"){
+      localStorage.clear();
+    }
     nav(path);
     setVisible(false);
   };

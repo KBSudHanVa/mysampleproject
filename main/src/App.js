@@ -1,10 +1,10 @@
 import './App.css';
-import { ParentRouts } from './Components/ParentRouts';
+// import { ParentRouts } from './Components/ParentRouts';
 
 function App() {
   return (
     <div className="App">
-      <ParentRouts/>
+      {/* <ParentRouts/> */}
     </div>
   );
 }
