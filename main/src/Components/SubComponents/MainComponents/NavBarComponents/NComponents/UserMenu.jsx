@@ -26,7 +26,6 @@ const UserMenu = ({ firstLetter }) => {
   const handleMenuClick = (path) => {
     if(path==="/" || path===""){
       console.log(localStorage.getItem('token'));
-
       if(!localStorage.getItem('token')){
         nav(path);
       }else{
