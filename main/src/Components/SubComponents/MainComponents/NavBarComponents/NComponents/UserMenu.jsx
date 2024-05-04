@@ -25,10 +25,18 @@ const UserMenu = ({ firstLetter }) => {
 
   const handleMenuClick = (path) => {
     if(nav==="/"){
-      localStorage.clear();
+      console.log(localStorage.getItem('token'));
+
+      if(!localStorage.getItem('token')){
+        nav(path);
+      }else{
+        localStorage.clear();
+        console.log("CLEARED")
+        nav(path);
+      }
     }
-    nav(path);
-    setVisible(false);
+    // nav(path);
+    // setVisible(false);
   };
 
   const items = [
