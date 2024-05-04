@@ -1,10 +1,24 @@
+import { lazy } from "react";
 import { redirect } from "react-router-dom";
-import MySignin from "../Components/LoginPage/MySignin";
-import MySignup from "../Components/LoginPage/MySignup";
-import TaskComponent from "../Components/SubComponents/MainComponents/ComponentScreens/DataComponents/TaskComponent";
-import NotFoundComponent from "../Components/SubComponents/MainComponents/ComponentScreens/ErrorComponents/NotFoundComponent";
-import SideNav from "../Components/SubComponents/MainComponents/NavBarComponents/SideNav";
-import HomeComponent from "../Components/SubComponents/MainComponents/ComponentScreens/DataComponents/HomeComponent";
+
+// import MySignin from "../Components/LoginPage/MySignin";
+// import MySignup from "../Components/LoginPage/MySignup";
+// import TaskComponent from "../Components/SubComponents/MainComponents/ComponentScreens/DataComponents/TaskComponent";
+// import NotFoundComponent from "../Components/SubComponents/MainComponents/ComponentScreens/ErrorComponents/NotFoundComponent";
+// import SideNav from "../Components/SubComponents/MainComponents/NavBarComponents/SideNav";
+// import HomeComponent from "../Components/SubComponents/MainComponents/ComponentScreens/DataComponents/HomeComponent";
+
+const MySignin = lazy(() => import('../Components/LoginPage/MySignin'));
+const MySignup = lazy(() => import('../Components/LoginPage/MySignup'));
+
+const SideNav = lazy(() => import('../Components/SubComponents/MainComponents/NavBarComponents/SideNav'));
+const HomeComponent = lazy(() => import('../Components/SubComponents/MainComponents/ComponentScreens/DataComponents/HomeComponent'));
+const TaskComponent = lazy(() => import('../Components/SubComponents/MainComponents/ComponentScreens/DataComponents/TaskComponent'));
+
+const NotFoundComponent = lazy(() => import('../Components/SubComponents/MainComponents/ComponentScreens/ErrorComponents/NotFoundComponent'));
+
+
+const lstore = localStorage.getItem('token');
 
 export const allRouter = [
     {
@@ -32,5 +46,9 @@ export const allRouter = [
           element: <NotFoundComponent />
         }
       ]
+    },
+    {
+      path: "*",
+      element: <NotFoundComponent/>
     }
   ]

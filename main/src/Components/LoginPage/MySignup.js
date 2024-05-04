@@ -33,7 +33,9 @@ function MySignup() {
 
     const myRegisterApi = async (myObj) => {
 
-        const url = 'http://localhost:8080/api/saveUser';
+        // const url = 'http://localhost:8080/api/saveUser';
+        const url = 'https://d01b-122-164-216-213.ngrok-free.app/api/saveUser';
+        
         // const url = 'https://1163-115-98-202-101.ngrok-free.app/signup';
         
         const dataToSend = myObj;
@@ -95,6 +97,8 @@ function MySignup() {
         const { name, value } = event.target;
         setFormData((prevState) => ({ ...prevState, [name]: value }));
         setErrors((prevErrors) => ({ ...prevErrors, [name]: '' }));
+
+        
         // validateForm();
 
     };
@@ -140,12 +144,11 @@ function MySignup() {
         }
         
         if (!formData.phone_number || !formData.phone_number.startsWith("+91") || formData.phone_number.length !== 13) {
-            errors.phone_number = "Phone Number is required, must start with +91, and must be 13 characters long";
+            errors.phone_number = "Entered phone number is not valid";
         }
-            
         
         if (!formData.email) {
-            errors.email = "Email Id is required"
+            errors.email = "Entered email is not valid"
         }
         if (!formData.password) {
             errors.password = "Password is required"
@@ -205,6 +208,7 @@ function MySignup() {
                         type='text'
                         value={formData.first_name}
                         onChange={onHandleChange}
+                        // helperText={errors.first_name}
                         error={Boolean(errors.first_name)}
                         className='inputFieldsCss' /><br /><br />
                 </center>
@@ -218,6 +222,7 @@ function MySignup() {
                         type='text'
                         value={formData.last_name}
                         onChange={onHandleChange}
+                        // helperText={errors.last_name}
                         error={Boolean(errors.last_name)}
                         className='inputFieldsCss' /><br /><br />
                 </center>
@@ -232,6 +237,7 @@ function MySignup() {
                         type='text'
                         value={formData.email}
                         onChange={onHandleChange}
+                        // helperText={errors.email}
                         error={Boolean(errors.email)}
                         className='inputFieldsCss' /><br /><br />
                 </center>
@@ -247,6 +253,7 @@ function MySignup() {
                         value={formData.phone_number}
                         onChange={onHandleChange}
                         onKeyDown={handleKeyDown}
+                        // helperText={errors.phone_number}
                         error={Boolean(errors.phone_number)}
                         className='inputFieldsCss'
                         inputProps={{ maxLength: 13, inputMode: 'numeric' }}
@@ -276,6 +283,7 @@ function MySignup() {
                             name='password'
                             value={formData.password}
                             onChange={onHandleChange}
+                            // helperText={errors.password}
                             error={Boolean(errors.password)}
                         />
                     </FormControl><br /><br />
@@ -304,6 +312,7 @@ function MySignup() {
                             name='confpass'
                             value={formData.confpass}
                             onChange={onHandleChange}
+                            // helperText={errors.confpass}
                             error={Boolean(errors.confpass)}
                         />
                     </FormControl><br /><br />
