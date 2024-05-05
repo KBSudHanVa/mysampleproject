@@ -8,6 +8,10 @@ const MenuList = ({ darkTheme }) => {
 
     var a = 'more ('+0+')';
 
+    const onbording = [
+
+    ];
+
     const useritems = [
         {
             key: 'main',
@@ -220,7 +224,7 @@ const MenuList = ({ darkTheme }) => {
                 },
             ]
         }
-    ]
+    ];
 
     const clickedmenu = (path) => {
         nav(path);
